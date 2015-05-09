@@ -1,4 +1,4 @@
-from cyclone_server import httpclient
+from cyclone import httpclient
 import json
 from twisted.internet import defer
 import calendar
@@ -79,7 +79,7 @@ class SearchEngine(object):
                                 "min_term_freq": 2,
                                 "min_word_len": 3
                                 }
-                            },
+                        },
                         "filter": {
                              "not": {
                                     "term": {"did":doc_id}
@@ -87,10 +87,12 @@ class SearchEngine(object):
                         }
                     }
                 }
+        }
 
         search_url = 'http://%s:%s/%s/%s/_search' % (
                 self.config.host, self.config.port,
-                self.config.index, self.config.document_type)
+                self.config.index, self.config.document_type
+        )
         response = yield httpclient.fetch(search_url, method='POST', postdata=json.dumps(qry))
         jsondata = json.loads(response.body)
         defer.returnValue(jsondata)
