@@ -9,6 +9,7 @@ server/uploads/*
 server/temp/*
 server/audio/*
 server/frontend/static/build/*
+server/content/*
 twistd.pid
 .vagrant
 _trial_temp*
