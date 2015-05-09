@@ -12,13 +12,14 @@ class SearchEngine(object):
     def __init__(self, conf):
         self.config = conf
 
+    @defer.inlineCallbacks
     def index_document(self, doc):
         data = {
             "did": doc["id"],
             "title": doc["title"],
-            "type": doc["type"],
+            "image_url": doc["img_url"],
             "content": doc["content"],
-            "crdate": doc["date"].strftime(consts.YYYMMDD_DATE_FORMAT)
+            "crdate": doc["date"].strftime('%Y%m%d')
         }
 
         index_url = 'http://%s:%s/%s/%s/%s?timestamp=%s' % (
@@ -27,7 +28,7 @@ class SearchEngine(object):
                 doc["id"], timestamp(doc["date"])
         )
         data = json.dumps(data)
-        yield httpclient.fetch(index_url, method='POST', postdata=data)
+        r = yield httpclient.fetch(index_url, method='POST', postdata=data)
         defer.returnValue(True)
 
     @defer.inlineCallbacks

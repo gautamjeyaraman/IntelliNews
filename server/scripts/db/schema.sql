@@ -9,5 +9,6 @@ CREATE TABLE Document(
     id              SERIAL PRIMARY KEY,
     title           VARCHAR(256),
     type            VARCHAR(100),
+    img_url         VARCHAR(1024),
     uploaded_on     TIMESTAMP
 );
