@@ -44,6 +44,7 @@ curl -XPOST $url/doc/_mapping -d '{
 	    "did": {"type" : "integer", "index" : "not_analyzed", "include_in_all":false},  
 	    "crdate": {"type" : "date", "index" : "not_analyzed", "include_in_all":false}, 
         "type": {"type" : "string", "index" : "not_analyzed", "include_in_all":false} ,
+        "image_url": {"type" : "string", "index" : "not_analyzed", "include_in_all":false} ,
 	    "title": {"type" : "string", "index" : "analyzed"},
 	    "content": {"type" : "string", "index":"analyzed"}   
         },  
