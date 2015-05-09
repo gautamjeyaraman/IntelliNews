@@ -53,4 +53,26 @@ def parse_config(filename=None):
     else:
         settings["postgresql_settings"] = None
 
+    # search engine
+    if xget(cfg.getboolean, "search_engine", "enabled", False):
+        settings['search_engine'] = ObjectDict(
+            host=cfg.get('search_engine', 'host'),
+            port=cfg.get('search_engine', 'port'),
+            index=cfg.get(
+                'search_engine', 'index'),
+            document_type=cfg.get(
+                'search_engine', 'document_type')
+        )
+    else:
+        settings["search_engine"] = None
+
+    #Neo4j server
+    if xget(cfg.getboolean, "neo4j", "enabled", False):
+        settings["neo4j"] = ObjectDict(
+            host=cfg.get("neo4j", "host"),
+            port=cfg.getint("neo4j", "port")
+        )
+    else:
+        settings["neo4j"] = None
+
     return settings

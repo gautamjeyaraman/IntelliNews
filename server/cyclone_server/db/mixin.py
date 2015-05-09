@@ -1,6 +1,7 @@
 from cyclone_server.db.postgres import PostgresDatabase
 from psycopg2.extras import NamedTupleConnection
 from twisted.enterprise.adbapi import ConnectionPool
+from cyclone_server.search_engine import SearchEngine
 
 
 postgres_connection_settings = None
@@ -24,6 +25,10 @@ class DatabaseMixin(object):
             cls.postgresql = pg_cpool
             print pg_cpool
         cls.preferred_db_class = PostgresDatabase
+
+        conf = settings.get("search_engine")
+        if conf:
+            cls.search_engine = SearchEngine(conf)
       
     def _connect(self):
         return self.postgresql
