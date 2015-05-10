@@ -3,8 +3,8 @@
  */
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
+
+  color: black;
 }
 
 h1, .h1,
@@ -28,6 +28,8 @@ h6, .h6 {
   .container-fluid {
     margin: auto;
     width: 970px;
+    
+    
   }
 }
 
@@ -37,7 +39,7 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #428bca;
+  background-color: #8DA4B8;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
@@ -91,6 +93,7 @@ height:40px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .blog-title {
   margin-top: 30px;
   margin-bottom: 0;
@@ -116,6 +119,7 @@ height:40px;
 .sidebar-module{
   padding: 15px;
   margin: 0 -15px 15px;
+  height: 25%;
 }
 .sidebar-module-inset {
   padding: 15px;
@@ -127,29 +131,8 @@ height:40px;
 .sidebar-module-inset ol:last-child {
   margin-bottom: 0;
 }
-.searchform{
-        background-color: #FFFFFF;
-        border: 1px solid #CCCCCC;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        
-        opacity: 0.95;
-        padding: 8px 0 0px;
-        position: relative;
-        z-index: 10;
 
-}
-.form1 {
 
-       
-        margin:0 0 13.5px;
-        font-size:.8em;
-        color:#414042;
-        /*border:1px solid #ddd;*/
-        padding:12px 2%;
-        font-size:.7em;
-        font-family: "proxima-nova",sans-serif;
-}
 
 /* Pagination */
 .pager {

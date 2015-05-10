@@ -1,0 +1,123 @@
+.body-main{
+    overflow : hidden;
+}
+
+.container{
+	width : 100% !important;
+    height : 100% !important;
+}
+
+.bg-layer{
+    height: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    margin-left: 425px;
+    margin-right: 425px;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.textbox{
+	width: 75%;
+	margin-top: 20px;
+	border-radius: 5px 5px 5px 5px;
+	margin-left: 14%;
+	padding: 10px;
+    border: none;
+}
+.searchbox{
+	width: 50%;
+	height: 30px;
+	border-radius: 5px 5px 5px 5px;
+	margin-left: 4%;
+	padding: 5px;
+	top: -4px;
+	position: relative;
+    border: none;
+}
+#search_button{
+	height: 40px;
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 50px;
+	width: 50%;
+	margin-left: 25%;
+}
+
+.doc_head{
+	font-size: xx-large;
+	color: rgb(177, 128, 128);
+}
+
+.doc_content{
+	font-size: large;
+	color: rgb(50, 49, 49);
+    padding:40px;
+}
+
+.doc_viewer{
+    margin: 50px;
+}
+
+.tumbnail_image{
+   height: 250px;
+   width: 250px;
+   margin:10px;
+   padding:15px;
+   margin-left:10px;
+
+}
+.v8div{
+padding:10px;
+}
+
+.v8name{
+display: inline-block;
+margin-left: 15px;
+font-size: 20px;
+position: relative;
+top: -5px;
+}
+
+.v8desc{
+font-size: 12px;
+margin-left: 60px;
+display: inline-block;
+position: relative;
+top: -15px;
+}
+
+.v8text{
+font-size: 22px;
+}
+
+.timeslot .task span {
+font-size:13px;
+}
+
+.intro_text{
+text-shadow: 0 0 6px rgb(0,0,0);
+width: auto;
+margin: 0 auto;
+text-align: center;
+font-size: 54px;
+color: #fff;
+margin-bottom:30px;
+font-weight: 100;
+font-family:'Open Sans', sans-serif;
+}
+
+.loading{
+display:none;
+}
+
+.app_name{
+text-shadow: 0 0 6px rgb(0,0,0);
+width: auto;
+margin: 0 auto;
+text-align: center;
+font-size: 34px;
+color: #fff;
+margin-bottom:30px;
+font-weight: 100;
+font-family:'Open Sans', sans-serif;
+}
