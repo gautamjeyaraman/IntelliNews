@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% autoescape xhtml_escape %}
+{% autoescape None %}
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -38,29 +40,22 @@
         <div class="doc_viewer" style="background-color:#FBF7F7;padding:30px;border-radius: 5px;">
  
             <div class="row">
-		       <div class="col-sm-12 doc_head"><span> Result for "Sachin" </span></div>
+		       <div class="col-sm-12 doc_head"><span> {{term}} </span></div>
 		   </div>
 
 
+            {% for item in results %}
 		    <div class ="row">
 			     <div class="col-xs-1" >
-		        	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
+		        	     <img class="small_tumbnail_image" src="{{ item['img'] }}" />
 			     </div>
 
-			     <div class=".col-xs-11" style="margin:10px;padding:15px;"><span>
-			         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
+			     <div class=".col-xs-11" style="margin:10px;padding:15px;">
+			         <b>{{item["title"]}}</b><br/>
+			         {{ item["text"] }}
 			     </div>
              </div>
-
-             <div class ="row">
-			     <div class="col-xs-1" >
-		        	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			     </div>
-
-			     <div class=".col-xs-11" style="margin:10px;padding:15px;"><span>
-			         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			     </div>
-             </div>
+             {% end %}
 
 
          </div>   <!-- /.doc_viewer -->
