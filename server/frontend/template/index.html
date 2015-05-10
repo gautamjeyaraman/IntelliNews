@@ -25,9 +25,8 @@
             <img src="/static/images/bg.jpg" style="position: absolute;top: 0; height: 100%; width: 100%; z-index: -1;"/>
             <div class=".col-md-6 .col-md-offset-3 bg-layer">
 	      <div class="intro_text">IntelliNews</div>
-                <input class="textbox" type="text" id="search_key" placeholder="User name"/>
-                <input class="textbox" type="text" id="search_key" placeholder="Password" />
-                <form action="http://localhost:8888/home">
+                <input class="textbox" type="text" id="username" placeholder="User name"/>
+                <input class="textbox" type="password" id="password" placeholder="Password" />
                 <button id="search_button" class="btn btn-primary"><i class="icon-search" style="opacity:0.5;"></i> LogIn</button>
                 </form>
             </div>
@@ -45,7 +44,17 @@
     <script src="/static/js/jquery-1.8.3.js"></script>
     <script src="/static/js/underscore.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
-    
+    <script>
+        $("#search_button").live("click", function(e){
+            e.preventDefault();
+            if($("#username").val() == "prem" && $("#password").val() == "1234"){
+                window.location.href = "/home";
+            }
+            else{
+                window.alert("Invalid username/password");
+            }
+        });
+    </script>
   
  </body>
  
