@@ -66,3 +66,15 @@ class RestClient(object):
                 batch.append(self.__cypher_query_batch_request_body(i, query1, docId=doc["id"], ent=item.lower()))
                 i += 1
         self.__post_batch_request(batch)
+
+    @defer.inlineCallbacks
+    def entitiesInDoc(self, doc_id):
+        query = "START d=node:node_auto_index(idid={did})"\
+                " MATCH d-[m:HAS]->t"\
+                " RETURN t.itag"
+        response = yield self.cypher_query(query, did=doc_id)
+        response = response["data"]
+        tags = []
+        for x in response:
+            tags.extend(x)
+        defer.returnValue(tags)

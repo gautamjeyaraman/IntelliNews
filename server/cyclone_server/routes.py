@@ -15,7 +15,7 @@ def munge_route_list(rl):
 
 routes = munge_route_list([
     URLSpec(r'/', views.IndexHandler),
-    URLSpec(r'/document_viewer', views.DocumentVieweHandler),
+    URLSpec(r'/document/([0-9]+)', views.DocumentViewHandler),
     
     URLSpec(r'/api/latest/sample', api.SampleHandler)
 ])
