@@ -4,7 +4,7 @@ from cyclone_server import routes
 from doc_processor import DocProcessor
 
 
-should_process = True
+should_process = False
 
 class Application(cyclone.web.Application):
     def __init__(self, settings):

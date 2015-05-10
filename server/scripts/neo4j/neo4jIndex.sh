@@ -23,10 +23,12 @@ curl -XPOST -H "Content-Type:application/json; charset=UTF-8;" $url/db/data/inde
 
 curl -XPUT  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/status -d True
 
-curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d nm
+curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d inm
 
-curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d tag
+curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d index
 
-curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d ctype
+curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d itag
 
-curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d did
+curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d ictype
+
+curl -XPOST  -H "Content-Type:application/json; charset=UTF-8;"  $url/db/data/index/auto/node/properties -d idid

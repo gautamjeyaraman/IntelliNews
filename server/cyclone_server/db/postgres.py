@@ -7,7 +7,7 @@ class PostgresDatabase(object):
 
     def insert_doc(self, doc):
         return self.connection.runOperation(
-            query._CREATE_DOC, (doc["title"], doc["date"], doc["img_url"]))
+            query._CREATE_DOC, (doc["title"], doc["date"], doc["img_url"], doc["type"]))
 
     def get_id_from_title(self, title):
         return self.connection.runQuery(

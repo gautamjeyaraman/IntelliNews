@@ -19,7 +19,8 @@ class SearchEngine(object):
             "title": doc["title"],
             "image_url": doc["img_url"],
             "content": doc["content"],
-            "crdate": doc["date"].strftime('%Y%m%d')
+            "crdate": doc["date"].strftime('%Y%m%d'),
+            "type": doc["type"]
         }
 
         index_url = 'http://%s:%s/%s/%s/%s?timestamp=%s' % (

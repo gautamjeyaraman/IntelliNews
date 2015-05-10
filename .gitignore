@@ -11,6 +11,9 @@ server/audio/*
 server/frontend/static/build/*
 server/content/*
 server/dataset/*
+server/topic_classifier/business/*
+server/topic_classifier/entertainment/*
+server/topic_classifier/sports/*
 twistd.pid
 .vagrant
 _trial_temp*
