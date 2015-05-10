@@ -132,7 +132,7 @@ display:none;
 }
 
 .app_name{
-text-shadow: 0 0 6px rgb(0,0,0);
+text-shadow: 0 0 2px rgb(0,0,0);
 width: auto;
 margin: 0 auto;
 text-align: center;
@@ -141,4 +141,9 @@ color: #fff;
 margin-bottom:30px;
 font-weight: 100;
 font-family:'Open Sans', sans-serif;
+}
+
+.box-content > a{
+margin-left: 45px;
+display: block;
 }
