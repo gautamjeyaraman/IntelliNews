@@ -31,6 +31,7 @@
 	top: -4px;
 	position: relative;
     border: none;
+    color: #333!important;
 }
 #search_button{
 	height: 40px;
