@@ -23,3 +23,9 @@ class DocumentViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
             content = content.replace(x, '<a href="/search/' + x + '">' + x + "</a>")
         doc["content"] = content
         self.render("document_viewer.html", doc=doc, sim=sim)
+
+
+class SearchViewHandler(cyclone.web.RequestHandler):
+
+    def get(self, term):
+        self.render("search.html")
