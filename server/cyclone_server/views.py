@@ -14,3 +14,9 @@ class SearchVieweHandler(cyclone.web.RequestHandler):
 
     def get(self):
         self.render("search.html")
+
+class HomeViewHandler(cyclone.web.RequestHandler):
+
+    def get(self):
+        self.render("home.html")
+
