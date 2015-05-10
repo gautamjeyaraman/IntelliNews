@@ -45,7 +45,7 @@
 
 
             {% for item in results %}
-		    <div class ="row">
+		    <a href="/document/{{ item['id'] }}" class ="row" style="display:block;">
 			     <div class="col-xs-1" >
 		        	     <img class="small_tumbnail_image" src="{{ item['img'] }}" />
 			     </div>
@@ -54,7 +54,7 @@
 			         <b>{{item["title"]}}</b><br/>
 			         {{ item["text"] }}
 			     </div>
-             </div>
+             </a>
              {% end %}
 
 

@@ -51,8 +51,16 @@
     padding:40px;
 }
 
-.doc_content > a{
+.doc_content > .PER{
 color:#FF4D4D;
+}
+
+.doc_content > .LOC{
+color:#00C02E;
+}
+
+.doc_content > .ORG{
+color:#4D94FF;
 }
 
 em{
