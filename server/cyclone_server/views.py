@@ -45,8 +45,7 @@ class HomeViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
                 doc = yield self.search_engine.getDocument(x)
                 doc["content"] = doc["content"][:100] + "..."
                 response[item[0]].append(doc)
-        print response
-        self.render("home.html")
+        self.render("home.html", data=response)
 
 
 class SearchViewHandler(cyclone.web.RequestHandler, DatabaseMixin):

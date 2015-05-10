@@ -39,125 +39,28 @@
 
           <div class="row">
              <div class = "col-xs-7">
-                <div class="row">
-		           <div class="doc_head"><span> Result for "Sachin" </span></div>
-		       </div>
-
-
-		        <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-                 <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-
-
+                
+               {% for key in data.keys() %}
                <div class="row">
-		           <div class="doc_head"><span> Result for "Sachin" </span></div>
+		           <div class="doc_head"><span> {{ key }} </span></div>
 		       </div>
 
+                    {% for item in data[key] %}
+		            <div class ="row">
+                       <a href="/document/{{item['did']}}">
+			             <div class="col-xs-2" >
+		                	     <img class="small_tumbnail_image" src="{{ item['image_url'] }}" />
+			             </div>
 
-		        <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
+			             <div style="padding:25px;">
+			                <b>{{item['title']}}</b><br/>
+			                {{item['content']}}
+			             </div>
+                       </a>
+                     </div>
+                     {% end %}
 
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-                 <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-         
-               <div class="row">
-		           <div class="doc_head"><span> Result for "Sachin" </span></div>
-		       </div>
-
-
-		        <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-                 <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-
-                <div class="row">
-		           <div class="doc_head"><span> Result for "Sachin" </span></div>
-		       </div>
-
-
-		        <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
-
-                 <div class ="row">
-                   <div>
-			         <div class="col-xs-2" >
-		            	     <img class="small_tumbnail_image" src="/static/images/bg.jpg" />
-			         </div>
-
-			         <div style="padding:25px;"><span>
-			             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</span>
-			         </div>
-                   </div>
-                 </div>
+                {% end %}
 
              </div><!------------/.leftPane---->
 
