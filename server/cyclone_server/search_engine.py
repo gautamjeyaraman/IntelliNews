@@ -39,7 +39,7 @@ class SearchEngine(object):
             return
         qry = {
             "from": skip, "size": limit,
-            "_source": ["title", "content", "did", "crdate", "type"],
+            "_source": ["title", "did", "crdate", "type", "image_url"],
             "query": {
                 "filtered": {
                     "query": {
@@ -65,6 +65,12 @@ class SearchEngine(object):
         search_url = 'http://%s:%s/%s/_search' % (self.config.host, self.config.port, self.config.index)
         response = yield httpclient.fetch(search_url, method='GET', postdata=json.dumps(qry))
         jsondata = json.loads(response.body)
+        jsondata = jsondata["hits"]["hits"]
+        jsondata = [{"title": x["_source"]["title"],
+                     "id": x["_source"]["did"],
+                     "text": x["highlight"]["content"][0],
+                     "img": x["_source"]["image_url"]
+                    } for x in jsondata]
         defer.returnValue(jsondata)
 
     @defer.inlineCallbacks

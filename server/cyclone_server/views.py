@@ -25,7 +25,9 @@ class DocumentViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
         self.render("document_viewer.html", doc=doc, sim=sim)
 
 
-class SearchViewHandler(cyclone.web.RequestHandler):
+class SearchViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
 
+    @defer.inlineCallbacks
     def get(self, term):
-        self.render("search.html")
+        results = yield self.search_engine.search(term)
+        self.render("search.html", results=results, term=term)
