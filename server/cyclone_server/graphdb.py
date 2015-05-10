@@ -71,10 +71,16 @@ class RestClient(object):
     def entitiesInDoc(self, doc_id):
         query = "START d=node:node_auto_index(idid={did})"\
                 " MATCH d-[m:HAS]->t"\
-                " RETURN t.itag"
+                " RETURN t.itag, t.ictype"
         response = yield self.cypher_query(query, did=doc_id)
         response = response["data"]
-        tags = []
-        for x in response:
-            tags.extend(x)
-        defer.returnValue(tags)
+        defer.returnValue(response)
+
+    @defer.inlineCallbacks
+    def getTopics(self):
+        query = "START r=node:node_auto_index(ictype='TOPIC')"\
+                " MATCH r<-[x]-doc"\
+                " RETURN DISTINCT r.itag, collect(doc.idid)"
+        response = yield self.cypher_query(query)
+        response = response["data"]
+        defer.returnValue(response)

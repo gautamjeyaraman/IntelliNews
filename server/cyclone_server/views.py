@@ -18,16 +18,34 @@ class DocumentViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
         graph = RestClient()
         entities = yield graph.entitiesInDoc(doc_id)
         content = doc["content"]
-        entities = list(set(entities))
+        ent = []
+        dup = []
         for x in entities:
-            content = content.replace(x, '<a href="/search/' + x + '">' + x + "</a>")
+            if x[0].lower() not in dup:
+                dup.append(x[0].lower())
+                ent.append(x)
+        entities = ent
+        entities.sort(key=lambda x: len(x[0]))
+        for x in entities:
+            content = content.replace(x[0], '<a href="/search/' + x[0] + '" class="' + x[1] + '">' + x[0] + "</a>")
         doc["content"] = content
         self.render("document_viewer.html", doc=doc, sim=sim)
 
-class HomeViewHandler(cyclone.web.RequestHandler):
+class HomeViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
 
+    @defer.inlineCallbacks
     def get(self):
-        self.render("home.html")
+        graph = RestClient()
+        topics = yield graph.getTopics()
+        topics = [[x[0], x[1][:3]] for x in topics]
+        response = {}
+        for item in topics:
+            response[item[0]] = []
+            for x in item[1]:
+                doc = yield self.search_engine.getDocument(x)
+                doc["content"] = doc["content"][:100] + "..."
+                response[item[0]].append(doc)
+        self.render("home.html", data=response)
 
 
 class SearchViewHandler(cyclone.web.RequestHandler, DatabaseMixin):
