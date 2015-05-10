@@ -5,11 +5,11 @@ class PostgresDatabase(object):
     def __init__(self, connection):
         self.connection = connection
 
-    def get_sample(self, sample):
+    def insert_doc(self, doc):
+        return self.connection.runOperation(
+            query._CREATE_DOC, (doc["title"], doc["date"], doc["img_url"], doc["type"]))
+
+    def get_id_from_title(self, title):
         return self.connection.runQuery(
-            query._SAMPLE, (sample, )).\
-            addCallback(self._got_sample)
-            
-    def _got_sample(self, rows):
-        if rows:
-            return (row[0].id, row[0].title)
+            query._GET_ID_FROM_TITLE, (title, )).\
+            addCallback(lambda x: x[0].id)
